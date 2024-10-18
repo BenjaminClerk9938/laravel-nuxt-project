@@ -1,0 +1,31 @@
+image: node:20
+
+stages:
+  - build
+  - deploy
+
+cache:
+  paths:
+    - node_modules/
+
+before_script:
+  - npm install
+
+build:
+  stage: build
+  script:
+    - npm run generate # Genera el sitio estático
+  artifacts:
+    paths:
+      - .output/public # Carpeta generada
+
+deploy:
+  stage: deploy
+  script:
+    - echo "Desplegando en GitLab Pages..."
+    - mv .output/public public # Mueve los archivos generados a la carpeta pública
+  artifacts:
+    paths:
+      - public
+  only:
+    - develop # Cambia 'main' por la rama que estés usando

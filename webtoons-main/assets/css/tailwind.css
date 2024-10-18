@@ -1,0 +1,194 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    @apply w-full;
+}
+
+body {
+    font-family: 'DIN Next W1G', sans-serif;
+    @apply bg-dark;
+}
+
+.opacity-0 {
+    opacity: 0;
+}
+
+.opacity-100 {
+    opacity: 1;
+}
+
+.transition-opacity {
+    transition: opacity 0.600s ease-in-out;
+}
+
+/*
+ * Class: .custom-font-1
+ *
+ * Description: Applies the 'Anta' font as the primary font and
+ * uses a sans-serif font as a fallback in case 'Anta' is not
+ * available.
+ *
+ * Recommended Use: For texts that require a modern and elegant
+ * aesthetic.
+ */
+.custom-font-1 {/*font-family: 'Anta'*/
+    font-family: 'Anta', sans-serif;
+    font-weight: 500;
+}
+
+/*
+ * Class: .custom-font-2
+ *
+ * Description: Applies the 'Inter' font as the primary font and
+ * uses a sans-serif font as a fallback in case 'Inter' is not
+ * available.
+ *
+ * Recommended Use: Ideal for interfaces and legible texts,
+ * especially in digital environments.
+ */
+.custom-font-2 {/*font-family: 'Inter'*/
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+}
+
+.banner-img-position {
+    object-position: 50% 50%;
+}
+
+@font-face {
+    font-family: 'DIN Next W1G';
+    src: url('../../public/fonts/dinnextw1g.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DIN Next W1G';
+    src: url('../../public/fonts/dinnextw1g_black.otf');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DIN Next W1G';
+    src: url('../../public/fonts/dinnextw1g_blackitalic.otf');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'DIN Next W1G';
+    src: url('../../public/fonts/dinnextw1g_bold.otf');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DIN Next W1G';
+    src: url('../../public/fonts/dinnextw1g_bolditalic.otf');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'DIN Next W1G';
+    src: url('../../public/fonts/dinnextw1g_heavy.otf');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DIN Next W1G';
+    src: url('../../public/fonts/dinnextw1g_heavyitalic.otf');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'DIN Next W1G';
+    src: url('../../public/fonts/dinnextw1g_italic.otf');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'DIN Next W1G';
+    src: url('../../public/fonts/dinnextw1g_light.otf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DIN Next W1G';
+    src: url('../../public/fonts/dinnextw1g_lightitalic.otf');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'DIN Next W1G';
+    src: url('../../public/fonts/dinnextw1g_medium.otf');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DIN Next W1G';
+    src: url('../../public/fonts/dinnextw1g_mediumitalic.otf');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'DIN Next W1G';
+    src: url('../../public/fonts/dinnextw1g_ultralight.otf');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DIN Next W1G';
+    src: url('../../public/fonts/dinnextw1g_ultralightitalic.otf');
+    font-weight: 200;
+    font-style: italic;
+}
+
+
+.paginator {
+    @apply flex items-center justify-center gap-0;
+
+    svg {
+        @apply w-[17px] h-[17px];
+    }
+
+    button {
+        @apply flex items-center justify-center p-[9px] w-10 h-10 text-transparent bg-transparent border-none;
+
+        span {
+            @apply hidden;
+        }
+
+        &:first-child,
+        &:last-child {
+            @apply text-white p-0;
+        }
+
+        &:not(:first-child):not(:last-child) {
+            @apply relative w-5 h-5;
+
+            &:disabled:after {
+                content: ' ';
+                @apply bg-white absolute w-2 h-2 rounded-full left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2;
+            }
+
+            &:after {
+                content: ' ';
+                @apply bg-gray-2 absolute w-2 h-2 rounded-full left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2;
+            }
+        }
+    }
+}
+
+
