@@ -7,7 +7,7 @@ export default defineEventHandler(async (event) => {
     const { page, order, filter } = await readBody(event)
 
     let queryFilter = `&filter=${filter}&order=${order}` ?? '';
-    console.log('posts is called')
+
     const response = await $fetch(`${backendUrl}/post/?page=${page}${queryFilter}`, {
         method: 'get',
     });

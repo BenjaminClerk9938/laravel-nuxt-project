@@ -16,8 +16,16 @@ const loadingUpdates = ref(true)
 const filter = useState('filter')
 
 const getLatestUpdates = async (page = 1, order = 'asc')  => {
-  latestUpdates.value = await $fetch(`http://localhost:8000/post/?page=${page}order=${order}`);
-
+  latestUpdates.value = await useApi("/posts" , {
+    method: "post",
+    body: {
+      page: page,
+      filter: filter.value,
+      order
+    }
+  }).finally(() => {
+    loadingUpdates.value = false;
+  })
 }
 
 
