@@ -56,7 +56,9 @@ const filterLatestUpdates = (newFilter: string) => {
 }
 
 const getTags = async () => {
-  tags.value = await $fetch("api/categories")
+
+
+  tags.value = await $fetch("http://localhost:8000/api/post/tags")
 }
 
 onMounted(() => getTags())

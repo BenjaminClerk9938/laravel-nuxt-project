@@ -9,7 +9,6 @@ export default defineEventHandler(async (event) => {
     const response = await $fetch(`${backendUrl}/post/${slug}`, {
         method: 'get',
     });
-    console.log(response)
     const currentDate = new Date();
     currentDate.setHours(currentDate.getHours() - 1);
 
