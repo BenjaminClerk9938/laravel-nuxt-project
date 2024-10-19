@@ -59,7 +59,9 @@ class Post extends Model implements  HasMedia
     protected function cover(): Attribute
     {
         return Attribute::make(
-            get: fn () => $this->getFirstMediaUrl('cover') ?: null,
+            get: function () {
+                return $this->getFirstMedia('cover')->getFullUrl() ?: null;
+            }
         );
     }
 

@@ -16,7 +16,6 @@ const loadingUpdates = ref(true)
 const filter = useState('filter')
 
 const getLatestUpdates = async (page = 1, order = 'asc')  => {
-  console.log("getLatestUpdates is called")
   latestUpdates.value = await useApi("/posts" , {
     method: "post",
     body: {
@@ -26,7 +25,6 @@ const getLatestUpdates = async (page = 1, order = 'asc')  => {
     }
   }).finally(() => {
     loadingUpdates.value = false;
-    console.log("getLatestUpdates is ended")
   })
 }
 

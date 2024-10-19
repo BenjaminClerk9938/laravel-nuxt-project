@@ -41,7 +41,7 @@ class PostSearch extends Component
 
     public function savePost($post)
     {
-
+        ini_set('max_execution_time', 1200); //20 minutes
         $this->validate();
 
         try {
