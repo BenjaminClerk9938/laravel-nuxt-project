@@ -14,10 +14,23 @@ const latestUpdates = ref()
 const loadingUpdates = ref(true)
 
 const filter = useState('filter')
+// const getLatestUpdates = async (page = 1, order = 'asc')  => {
+//   latestUpdates.value = await $fetch(`http://localhost:8000/api/post/?page=${page}order=${order}`);
 
+// }
 const getLatestUpdates = async (page = 1, order = 'asc')  => {
-  latestUpdates.value = await $fetch(`http://localhost:8000/api/post/?page=${page}order=${order}`);
-
+  console.log("getLatestUpdates is called")
+  latestUpdates.value = await useApi("/posts" , {
+    method: "post",
+    body: {
+      page: page,
+      filter: filter.value,
+      order
+    }
+  }).finally(() => {
+    loadingUpdates.value = false;
+    console.log("getLatestUpdates is ended")
+  })
 }
 
 
