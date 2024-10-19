@@ -13,7 +13,7 @@ class PostController extends Controller
     {
         $query = Post::where('published', true)
             ->with(['chapters' => function($query) {
-                return $query->inRandomOrder()->limit(2);
+                return $query->inRandomOrder();
             }])
             ->orderBy('created_at', 'desc');
 

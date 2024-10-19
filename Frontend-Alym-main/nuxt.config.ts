@@ -2,9 +2,10 @@
 export default defineNuxtConfig({
   runtimeConfig: {
     public: {
-      backendUrl: process.env.BACKEND_URL
+      backendUrl: process.env.BACKEND_URL||'http://127.0.0.1/api'
     }
   },
+  
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
   modules: [

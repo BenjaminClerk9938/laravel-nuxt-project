@@ -16,7 +16,7 @@ const loadingUpdates = ref(true)
 const filter = useState('filter')
 
 const getLatestUpdates = async (page = 1, order = 'asc')  => {
-  latestUpdates.value = await useApi("/posts" , {
+  latestUpdates.value = await $fetch("api/posts" , {
     method: "post",
     body: {
       page: page,
